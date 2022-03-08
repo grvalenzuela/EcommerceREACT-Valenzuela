@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 //import NavDropdown from "react-bootstrap/NavDropdown";
-//import Widget from '../Widget/Widget'
+import Widget from "../Widget/Widget";
 
 function NavBar() {
   //console.log(props)
@@ -18,11 +18,11 @@ function NavBar() {
               <Nav.Link href="#">Inicio</Nav.Link>
               <Nav.Link href="#">Arma tu pc</Nav.Link>
             </Nav>
-            {/* <Nav>
+            <Nav>
               <Nav.Link eventKey={2} href="#memes">
                 <Widget />
               </Nav.Link>
-            </Nav> */}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
