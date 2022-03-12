@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import logo from "./logo.svg";
 import NavBar from "./componentes/NavBar/NavBar";
-import ItemListContainer from "./container/ItemListContainer";
+import ItemListContainer from "./container/ItemListContainer/ItemListContainer";
 
 function App() {
   const [count, setCount] = useState(0);
