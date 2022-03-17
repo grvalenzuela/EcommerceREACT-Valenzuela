@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getItems } from "../../helpers/getItems";
 import Spinner from "react-bootstrap/Spinner";
 import ItemCount from "../../componentes/ItemCount/ItemCount";
 import ItemList from "../../componentes/ItemList/ItemList";
-import { getItems } from "../../helpers/getItems";
 
 function ItemListContainer({ saludo }) {
   const [bool, setBool] = useState(true);
   const [loading, setLoading] = useState(true);
   const [prods, setProds] = useState([]);
 
-  // const { id } = useParams();
+  const { id } = useParams();
 
   // return (
   //   <>
@@ -31,7 +32,9 @@ function ItemListContainer({ saludo }) {
 
   useEffect(() => {
     getItems // simula llamado API
-      .then((resp) => setProds(resp))
+      .then((resp) =>
+        setProds(resp.filter((prod) => (id ? prod.category === id : prod)))
+      )
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
@@ -44,9 +47,11 @@ function ItemListContainer({ saludo }) {
   return (
     <>
       {loading ? (
-        <Spinner size={50} animation="border" variant="primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="p-3">
+          <Spinner size={50} animation="border" variant="primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <ItemList prods={prods} />
       )}

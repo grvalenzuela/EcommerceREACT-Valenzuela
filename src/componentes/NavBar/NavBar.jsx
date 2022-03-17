@@ -1,7 +1,7 @@
+import { Navbar, Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 //import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "../CartWidget/CartWidget";
 
@@ -15,8 +15,12 @@ function NavBar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#">Inicio</Nav.Link>
-              <Nav.Link href="#">Arma tu pc</Nav.Link>
+              <LinkContainer to="/">
+                <Nav.Link>Inicio</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/carrito">
+                <Nav.Link>Carrito</Nav.Link>
+              </LinkContainer>
             </Nav>
             <Nav>
               <Nav.Link eventKey={2} href="#memes">
