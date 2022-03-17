@@ -23,9 +23,11 @@ function NavBar() {
               </LinkContainer>
             </Nav>
             <Nav>
-              <Nav.Link eventKey={2} href="#memes">
-                <CartWidget />
-              </Nav.Link>
+              <LinkContainer to="/carrito">
+                <Nav.Link eventKey={2} href="#memes">
+                  <CartWidget />
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>

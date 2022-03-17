@@ -1,3 +1,4 @@
+import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -23,9 +24,11 @@ function Item({ prod }) {
               </div>
             </div>
             <div className="card-footer">
-              <button className="btn btn-outline-primary btn-block">
-                detalle del producto
-              </button>
+              <LinkContainer to={`detalle/${prod.id}`}>
+                <button className="btn btn-outline-primary btn-block">
+                  detalle del producto
+                </button>
+              </LinkContainer>
             </div>
           </div>
         </div>
