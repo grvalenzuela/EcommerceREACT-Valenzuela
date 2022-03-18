@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getItems } from "../../helpers/getItems";
+import Spinner from "react-bootstrap/Spinner";
 import ItemDetail from "../../componentes/ItemDetail/ItemDetail";
 
 function ItemDetailContianer() {
@@ -17,9 +18,17 @@ function ItemDetailContianer() {
   }, []);
 
   return (
-    <div>
-      <ItemDetail prod={producto} />
-    </div>
+    <>
+      {loading ? (
+        <div className="p-3">
+          <Spinner size={50} animation="border" variant="primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <ItemDetail prod={producto} />
+      )}
+    </>
   );
 }
 
