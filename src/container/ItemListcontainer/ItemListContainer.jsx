@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getItems } from "../../helpers/getItems";
 import Spinner from "react-bootstrap/Spinner";
-import ItemCount from "../../componentes/ItemCount/ItemCount";
 import ItemList from "../../componentes/ItemList/ItemList";
 
 function ItemListContainer({ saludo }) {
@@ -39,10 +38,6 @@ function ItemListContainer({ saludo }) {
       .finally(() => setLoading(false));
   }, []);
 
-  const onAdd = (cant) => {
-    console.log(cant);
-  };
-
   console.log(prods);
   return (
     <>
@@ -53,9 +48,10 @@ function ItemListContainer({ saludo }) {
           </Spinner>
         </div>
       ) : (
-        <ItemList prods={prods} />
+        <div className="p-3">
+          <ItemList prods={prods} />
+        </div>
       )}
-      <ItemCount initial={1} stock={10} onAdd={onAdd} />
     </>
   );
 }

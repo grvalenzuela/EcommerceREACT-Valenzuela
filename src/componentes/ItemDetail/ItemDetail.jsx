@@ -1,7 +1,13 @@
 import "./ItemDetail.css";
+import ItemCount from "../../componentes/ItemCount/ItemCount";
 
 function ItemDetail({ prod }) {
   console.log(prod);
+
+  const onAdd = (cant) => {
+    console.log(`${cant} Agregados al carrito`);
+  };
+
   return (
     <div className="container">
       <div className="row ">
@@ -18,7 +24,8 @@ function ItemDetail({ prod }) {
               : ""}
             $
           </h4>
-          <button className="btn btn-success btn-block">Comprar</button>
+          <ItemCount initial={1} stock={prod.stock} onAdd={onAdd} />
+          {/* <button className="btn btn-success btn-block">Comprar</button> */}
         </div>
       </div>
     </div>
