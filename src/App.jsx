@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 import NavBar from "./componentes/NavBar/NavBar";
 import ItemDetailContainer from "./container/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./componentes/Cart/Cart";
+import CartContextProvider from "./context/CartContext";
 import Spinner from "react-bootstrap/Spinner";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,27 +25,29 @@ function App() {
       }
     >
       <BrowserRouter>
-        <div className="App">
-          <NavBar />
-          <Routes>
-            <Route
-              path="/"
-              element={<ItemListContainer saludo="Hola"></ItemListContainer>}
-            />
-            <Route
-              path="/categoria/:id"
-              element={<ItemListContainer saludo="hola" />}
-            />
-            <Route
-              path="/detalle/:detalleId"
-              element={<ItemDetailContainer />}
-            />
-            <Route path="/carrito" element={<Cart />} />
-            {/* <Route path='/notFound' element={<Componente404 />}/> */}
+        <CartContextProvider>
+          <div className="App">
+            <NavBar />
+            <Routes>
+              <Route
+                path="/"
+                element={<ItemListContainer saludo="Hola"></ItemListContainer>}
+              />
+              <Route
+                path="/categoria/:id"
+                element={<ItemListContainer saludo="hola" />}
+              />
+              <Route
+                path="/detalle/:detalleId"
+                element={<ItemDetailContainer />}
+              />
+              <Route path="/carrito" element={<Cart />} />
+              {/* <Route path='/notFound' element={<Componente404 />}/> */}
 
-            <Route path="/*" element={<Navigate to="/" />} />
-          </Routes>
-        </div>
+              <Route path="/*" element={<Navigate to="/" />} />
+            </Routes>
+          </div>
+        </CartContextProvider>
       </BrowserRouter>
     </Suspense>
 

@@ -1,11 +1,15 @@
-import "./ItemDetail.css";
+import { useCartContext } from "../../context/CartContext";
 import ItemCount from "../../componentes/ItemCount/ItemCount";
+import "./ItemDetail.css";
 
 function ItemDetail({ prod }) {
   console.log(prod);
 
+  const { addToCart } = useCartContext();
+
   const onAdd = (cant) => {
-    console.log(`${cant} Agregados al carrito`);
+    console.log(cant);
+    addToCart({ ...prod, cantidad: cant });
   };
 
   return (
