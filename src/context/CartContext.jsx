@@ -10,8 +10,8 @@ function CartContextProvider({ children }) {
 
   const addToCart = (item) => {
     /// repita duplicado
-    let itemEnCart = cartList.find((prod) => prod.Id === item.Id);
-
+    let itemEnCart = cartList.find((prod) => prod.id === item.id);
+    console.log(itemEnCart);
     itemEnCart
       ? (itemEnCart.cantidad += item.cantidad)
       : setCartList([...cartList, item]);
