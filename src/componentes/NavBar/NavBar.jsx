@@ -2,7 +2,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import React from "react";
 import Container from "react-bootstrap/Container";
-//import NavDropdown from "react-bootstrap/NavDropdown";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
@@ -21,6 +21,18 @@ function NavBar() {
               <LinkContainer to="/carrito">
                 <Nav.Link>Carrito</Nav.Link>
               </LinkContainer>
+              {/* <NavDropdown title="Categoria" id="basic-nav-dropdown">
+                <LinkContainer to="/categoria/PROCESADOR">
+                  <NavDropdown.Item href="#action/3.1">
+                    Procesadores
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/categoria/PLACAVIDEO">
+                  <NavDropdown.Item href="#action/3.2">
+                    Placas de video
+                  </NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown> */}
             </Nav>
             <Nav>
               <LinkContainer to="/carrito">
