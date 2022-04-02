@@ -17,6 +17,32 @@ function CartContextProvider({ children }) {
       : setCartList([...cartList, item]);
   };
 
+  const incrementarCantidad = (item) => {
+    const cartCopy = cartList.map((prod) => {
+      if (prod.id === item.id) {
+        prod.cantidad++;
+      }
+      return prod;
+    });
+
+    setCartList(cartCopy);
+  };
+
+  const decrementarCantidad = (item) => {
+    const cartCopy = cartList.map((prod) => {
+      if (prod.id === item.id) {
+        prod.cantidad--;
+      }
+      return prod;
+    });
+
+    setCartList(cartCopy);
+  };
+
+  const eliminar = (item) => {
+    setCartList(cartList.filter((prod) => prod.id != item.id));
+  };
+
   const vaciarCarrito = () => {
     setCartList([]);
   };
@@ -26,6 +52,9 @@ function CartContextProvider({ children }) {
       value={{
         cartList,
         addToCart,
+        incrementarCantidad,
+        decrementarCantidad,
+        eliminar,
         vaciarCarrito,
         cantidadProductos,
       }}
