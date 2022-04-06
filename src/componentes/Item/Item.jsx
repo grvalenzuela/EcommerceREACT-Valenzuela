@@ -8,15 +8,15 @@ function Item({ prod }) {
     <div className="container">
       <div className="row  justify-content-center">
         <div key={prod.id} className="col-md-6">
-          <div className="card w-100 mt-5 justify-content-center">
-            <div className="card-header">{`${prod.title} - ${prod.category}`}</div>
+          <div className="card mt-3 justify-content-center">
+            <div className="card-header">{`${prod.titulo} - ${prod.categoria}`}</div>
             <div className="card-body">
               <div className="row justify-content-center">
                 <img src={prod.img} alt="" className="w-50" />
               </div>
               <div className="row justify-content-center">
                 <h5>
-                  {prod.price.toLocaleString(navigator.language, {
+                  {prod.precio.toLocaleString(navigator.language, {
                     minimumFractionDigits: 0,
                   })}
                   $
@@ -24,7 +24,7 @@ function Item({ prod }) {
               </div>
             </div>
             <div className="card-footer">
-              <LinkContainer to={`detalle/${prod.id}`}>
+              <LinkContainer to={`/detalle/${prod.id}`}>
                 <button className="btn btn-primary btn-block">
                   detalle del producto
                 </button>

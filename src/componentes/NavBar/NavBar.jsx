@@ -21,18 +21,23 @@ function NavBar() {
               <LinkContainer to="/carrito">
                 <Nav.Link>Carrito</Nav.Link>
               </LinkContainer>
-              {/* <NavDropdown title="Categoria" id="basic-nav-dropdown">
-                <LinkContainer to="/categoria/PROCESADOR">
+              <NavDropdown title="Categoria" id="basic-nav-dropdown">
+                <LinkContainer to={`categoria/${"procesador"}`}>
                   <NavDropdown.Item href="#action/3.1">
                     Procesadores
                   </NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/categoria/PLACAVIDEO">
+                <LinkContainer to={`categoria/${"mother"}`}>
+                  <NavDropdown.Item href="#action/3.2">
+                    Motherboards
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to={`categoria/${"video"}`}>
                   <NavDropdown.Item href="#action/3.2">
                     Placas de video
                   </NavDropdown.Item>
                 </LinkContainer>
-              </NavDropdown> */}
+              </NavDropdown>
             </Nav>
             <Nav>
               <LinkContainer to="/carrito">

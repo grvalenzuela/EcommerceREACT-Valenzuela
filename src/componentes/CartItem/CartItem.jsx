@@ -23,8 +23,8 @@ function CartItem({ prod }) {
   return (
     <tr>
       <td>{prod.id}</td>
-      <td>{prod.title}</td>
-      <td>{prod.price}</td>
+      <td>{prod.titulo}</td>
+      <td>{prod.precio}</td>
       <td>
         <Button onClick={bajar} variant="info" size="sm">
           <MdRemove color={"white"} />{" "}

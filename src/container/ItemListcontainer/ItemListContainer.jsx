@@ -3,6 +3,14 @@ import { useParams } from "react-router-dom";
 import { getItems } from "../../helpers/getItems";
 import Spinner from "react-bootstrap/Spinner";
 import ItemList from "../../componentes/ItemList/ItemList";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 
 function ItemListContainer({ saludo }) {
   const [bool, setBool] = useState(true);
@@ -11,32 +19,38 @@ function ItemListContainer({ saludo }) {
 
   const { id } = useParams();
 
-  // return (
-  //   <>
-  //     <div>{saludo}</div>
+  // useEffect(() => {
+  //   getItems // simula llamado API
+  //     .then((resp) =>
+  //       setProds(resp.filter((prod) => (id ? prod.categoria === id : prod)))
+  //     )
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setLoading(false));
+  // }, []);
 
-  //     <>
-  //       <Button onClick={restarCount} variant="outline-primary">
-  //         <MdRemove size={20} />
-  //       </Button>{" "}
-  //       <label>{count}</label>{" "}
-  //       <Button onClick={sumarCount} variant="outline-primary">
-  //         <MdAdd size={20} />
-  //       </Button>
-  //     </>
-
-  //     {/* <button onClick={handleBool}>Buleano</button> */}
-  //   </>
-  // );
-
+  // traer productos filtrados por categorías
   useEffect(() => {
-    getItems // simula llamado API
+    console.log(id);
+    const db = getFirestore();
+
+    const queryCollectionFinal = !id
+      ? collection(db, "productos")
+      : query(
+          collection(db, "productos"),
+          where("categoria", "==", id)
+          //orderBy("titulo", "desc")
+        );
+
+    getDocs(queryCollectionFinal)
+      .then(setLoading(true))
       .then((resp) =>
-        setProds(resp.filter((prod) => (id ? prod.category === id : prod)))
+        setProds(
+          resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
+        )
       )
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   console.log(prods);
   return (

@@ -19,10 +19,10 @@ function ItemDetail({ prod }) {
           <img src={prod.img} alt="" className="w-50" />
         </div>
         <div className="col col-5 ms-2 mt-5 p-3 gap-3 divProducto divCompra d-flex flex-column align-items-end">
-          <h3 className="text-end">{prod.title}</h3>
+          <h3 className="text-end">{prod.titulo}</h3>
           <h4 className="text-success">
-            {prod.price
-              ? prod.price.toLocaleString(navigator.language, {
+            {prod.precio
+              ? prod.precio.toLocaleString(navigator.language, {
                   minimumFractionDigits: 0,
                 })
               : ""}
