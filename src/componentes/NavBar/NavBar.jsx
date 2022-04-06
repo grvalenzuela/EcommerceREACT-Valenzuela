@@ -7,6 +7,11 @@ import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
   //console.log(props)
+  const categorias = [
+    { id: "procesador", nombre: "Procesadores" },
+    { id: "mother", nombre: "MotherBoards" },
+    { id: "video", nombre: "Placas de Video" },
+  ];
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -22,12 +27,14 @@ function NavBar() {
                 <Nav.Link>Carrito</Nav.Link>
               </LinkContainer>
               <NavDropdown title="Categoria" id="basic-nav-dropdown">
-                <LinkContainer to={`categoria/${"procesador"}`}>
-                  <NavDropdown.Item href="#action/3.1">
-                    Procesadores
-                  </NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to={`categoria/${"mother"}`}>
+                {categorias.map((categoria) => (
+                  <LinkContainer to={`categoria/${categoria.id}`}>
+                    <NavDropdown.Item href="#action/3.1">
+                      {categoria.nombre}
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                ))}
+                {/* <LinkContainer to={`categoria/${"mother"}`}>
                   <NavDropdown.Item href="#action/3.2">
                     Motherboards
                   </NavDropdown.Item>
@@ -36,7 +43,7 @@ function NavBar() {
                   <NavDropdown.Item href="#action/3.2">
                     Placas de video
                   </NavDropdown.Item>
-                </LinkContainer>
+                </LinkContainer> */}
               </NavDropdown>
             </Nav>
             <Nav>
