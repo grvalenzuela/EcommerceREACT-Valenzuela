@@ -16,7 +16,11 @@ const ItemContador = ({ count, sumarCount, restarCount, agregar }) => {
           <MdAdd size={20} />{" "}
         </Button>
       </div>
-      <button onClick={agregar} className="btn btn-success btn-block">
+      <button
+        disabled={count <= 0}
+        onClick={agregar}
+        className="btn btn-success btn-block"
+      >
         Agregar al carrito
       </button>
     </>

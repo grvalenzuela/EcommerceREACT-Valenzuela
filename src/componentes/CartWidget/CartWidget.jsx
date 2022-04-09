@@ -4,15 +4,15 @@ import { useCartContext } from "../../context/CartContext";
 import Badge from "react-bootstrap/Badge";
 
 function CartWidget() {
-  const { cantidadProductos } = useCartContext();
+  const { cantidadTotalItem } = useCartContext();
 
-  console.log(cantidadProductos);
+  console.log("itemsCarrito: " + cantidadTotalItem());
   return (
     <div>
       <MdShoppingCart size={30} />
-      {cantidadProductos != 0 ? (
+      {cantidadTotalItem() != 0 ? (
         <Badge bg="warning" text="dark">
-          {cantidadProductos}
+          {cantidadTotalItem()}
         </Badge>
       ) : (
         ""

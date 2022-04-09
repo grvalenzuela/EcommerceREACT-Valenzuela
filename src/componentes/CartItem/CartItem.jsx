@@ -24,13 +24,30 @@ function CartItem({ prod }) {
     <tr>
       <td>{prod.id}</td>
       <td>{prod.titulo}</td>
-      <td>{prod.precio}</td>
       <td>
-        <Button onClick={bajar} variant="info" size="sm">
+        {prod.precio
+          ? prod.precio.toLocaleString(navigator.language, {
+              minimumFractionDigits: 0,
+            })
+          : ""}
+        $
+      </td>
+      <td>
+        <Button
+          disabled={prod.cantidad == 0}
+          onClick={bajar}
+          variant="info"
+          size="sm"
+        >
           <MdRemove color={"white"} />{" "}
         </Button>{" "}
         {prod.cantidad}{" "}
-        <Button onClick={subir} variant="info" size="sm">
+        <Button
+          disabled={prod.stock <= prod.cantidad}
+          onClick={subir}
+          variant="info"
+          size="sm"
+        >
           <MdAdd color={"white"} />{" "}
         </Button>
       </td>

@@ -28,7 +28,10 @@ function NavBar() {
               </LinkContainer>
               <NavDropdown title="Categoria" id="basic-nav-dropdown">
                 {categorias.map((categoria) => (
-                  <LinkContainer to={`categoria/${categoria.id}`}>
+                  <LinkContainer
+                    key={categoria.id}
+                    to={`categoria/${categoria.id}`}
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       {categoria.nombre}
                     </NavDropdown.Item>
