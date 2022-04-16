@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MdAdd, MdRemove } from "react-icons/md";
+import { MdAdd, MdRemove, MdAddShoppingCart } from "react-icons/md";
 import { LinkContainer } from "react-router-bootstrap";
 import Button from "react-bootstrap/Button";
 
@@ -7,21 +7,21 @@ const ItemContador = ({ count, sumarCount, restarCount, agregar }) => {
   return (
     <>
       {" "}
-      <div>
-        <Button onClick={restarCount} variant="success">
-          <MdRemove size={20} />{" "}
+      <div className="d-flex gap-1 justify-content-start">
+        <Button onClick={restarCount} variant="dark" size="sm">
+          <MdRemove size={15} />{" "}
         </Button>{" "}
         <label>{count}</label>{" "}
-        <Button onClick={sumarCount} variant="success">
-          <MdAdd size={20} />{" "}
+        <Button onClick={sumarCount} variant="dark" size="sm">
+          <MdAdd size={15} />{" "}
         </Button>
       </div>
       <button
         disabled={count <= 0}
         onClick={agregar}
-        className="btn btn-success btn-block"
+        className="btn btn-warning  text-white btn-block btn-sm"
       >
-        Agregar al carrito
+        <MdAddShoppingCart size={18} /> Agregar al carrito
       </button>
     </>
   );
@@ -31,10 +31,14 @@ const IrCarrito = () => {
   return (
     <div>
       <LinkContainer to="/carrito">
-        <button className="btn btn-primary btn-block">Terminar compra</button>
+        <button className="btn btn-primary btn-block btn-sm">
+          Terminar compra
+        </button>
       </LinkContainer>{" "}
       <LinkContainer to="/">
-        <button className="btn btn-secondary btn-block">Volver a Inicio</button>
+        <button className="btn btn-secondary btn-block btn-sm">
+          Volver a Inicio
+        </button>
       </LinkContainer>
     </div>
   );
@@ -60,7 +64,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   };
 
   return (
-    <div className="p-3 gap-3 d-flex flex-column">
+    <div className="p-1 gap-2 d-flex flex-column justify-content-start">
       {estadoBoton === "contador" ? (
         <ItemContador
           count={count}

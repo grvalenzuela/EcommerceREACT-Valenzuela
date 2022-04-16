@@ -32,7 +32,7 @@ function Cart() {
   const generarOrden = async (e) => {
     e.preventDefault();
 
-    // Nuevo objeto de orders
+    // Nuevo objeto de ordenes
     let orden = {};
 
     orden.comprador = dataForm;
@@ -97,7 +97,10 @@ function Cart() {
     <div className="container">
       <div className="row  justify-content-center">
         {cantidadTotalItem() != 0 ? (
-          <div className="col-md-10">
+          <div
+            className="col-md-10 border rounded"
+            style={{ backgroundColor: "white" }}
+          >
             <Table responsive>
               <thead>
                 <tr>
@@ -135,7 +138,10 @@ function Cart() {
           <h3>No hay productos en el carrito</h3>
         )}
       </div>
-      <div className="row justify-content-center">
+      <div
+        className="row justify-content-center border rounded"
+        style={{ backgroundColor: "white" }}
+      >
         {id != null ? (
           id && (
             <label className={"alert alert-success"}>

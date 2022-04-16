@@ -41,7 +41,7 @@ function ItemDetailContianer() {
   return (
     <>
       {loading ? (
-        <div className="p-3">
+        <div className="">
           <Spinner size={50} animation="border" variant="primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
