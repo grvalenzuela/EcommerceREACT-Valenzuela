@@ -6,6 +6,8 @@ export const useCartContext = () => useContext(CartContext);
 
 function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
+  const [ordenGenerada, setOrdenGenerada] = useState(false);
+  const [ordenFinalizada, setOrdenFinalizada] = useState(false);
   const cantidadProductos = cartList.length;
 
   const addToCart = (item) => {
@@ -46,6 +48,18 @@ function CartContextProvider({ children }) {
     setCartList([]);
   };
 
+  const cambiarEstadoOrden = () => {
+    ordenGenerada ? setOrdenGenerada(false) : setOrdenGenerada(true);
+  };
+
+  const finalizarOrden = () => {
+    setOrdenFinalizada(true);
+  };
+
+  const reiniciarOrden = () => {
+    setOrdenGenerada(false);
+    setOrdenFinalizada(false);
+  };
   //
   const precioTotal = () => {
     return cartList.reduce(
@@ -71,6 +85,11 @@ function CartContextProvider({ children }) {
         precioTotal,
         cantidadTotalItem,
         cantidadProductos,
+        ordenGenerada,
+        cambiarEstadoOrden,
+        ordenFinalizada,
+        finalizarOrden,
+        reiniciarOrden,
       }}
     >
       {children}

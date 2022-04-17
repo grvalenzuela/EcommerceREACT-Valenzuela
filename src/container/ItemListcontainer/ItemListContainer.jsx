@@ -18,18 +18,8 @@ function ItemListContainer({ saludo }) {
 
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   getItems // simula llamado API
-  //     .then((resp) =>
-  //       setProds(resp.filter((prod) => (id ? prod.categoria === id : prod)))
-  //     )
-  //     .catch((err) => console.log(err))
-  //     .finally(() => setLoading(false));
-  // }, []);
-
   // traer productos filtrados por categorías
   useEffect(() => {
-    console.log(id);
     const db = getFirestore();
 
     const queryCollectionFinal = !id
@@ -51,7 +41,6 @@ function ItemListContainer({ saludo }) {
       .finally(() => setLoading(false));
   }, [id]);
 
-  console.log(prods);
   return (
     <>
       {loading ? (

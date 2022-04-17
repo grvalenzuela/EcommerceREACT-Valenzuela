@@ -3,32 +3,14 @@ import { useParams } from "react-router-dom";
 import { getItems } from "../../helpers/getItems";
 import Spinner from "react-bootstrap/Spinner";
 import ItemDetail from "../../componentes/ItemDetail/ItemDetail";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  doc,
-  getDoc,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 function ItemDetailContianer() {
   const [producto, setProducto] = useState({});
   const [loading, setLoading] = useState(true);
   const { detalleId } = useParams();
-  console.log(detalleId);
-
-  // useEffect(() => {
-  //   getItems // simula llamado API
-  //     .then((resp) => setProducto(resp.find((prod) => prod.id === detalleId)))
-  //     .catch((err) => console.log(err))
-  //     .finally(() => setLoading(false));
-  // }, []);
 
   useEffect(() => {
-    console.log(detalleId);
     const db = getFirestore();
 
     const docRef = doc(db, "productos", detalleId);

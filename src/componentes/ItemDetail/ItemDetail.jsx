@@ -4,21 +4,18 @@ import { traerCategoria, traerCompatible } from "../../helpers/tags";
 import "./ItemDetail.css";
 
 function ItemDetail({ prod }) {
-  console.log(prod);
-
   const { addToCart } = useCartContext();
 
   const categoriaMostrar = traerCategoria(prod.categoria);
   const compatibleMostrar = traerCompatible(prod.compatible);
 
   const onAdd = (cant) => {
-    console.log(cant);
     addToCart({ ...prod, cantidad: cant });
   };
 
   return (
     <div className="container d-flex align-items-center justify-content-center">
-      <div className="col-md-12 bg-white">
+      <div className="col-md-12 bg-white m-3 rounded">
         <div className="row ">
           <div className="col col-md-6 pt-5">
             <img src={prod.img} alt="" className="w-50" />
@@ -49,8 +46,6 @@ function ItemDetail({ prod }) {
             <div className="row">
               <ItemCount initial={1} stock={prod.stock} onAdd={onAdd} />
             </div>
-
-            {/* <button className="btn btn-success btn-block">Comprar</button> */}
           </div>
         </div>
       </div>

@@ -37,16 +37,6 @@ function NavBar() {
                     </NavDropdown.Item>
                   </LinkContainer>
                 ))}
-                {/* <LinkContainer to={`categoria/${"mother"}`}>
-                  <NavDropdown.Item href="#action/3.2">
-                    Motherboards
-                  </NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to={`categoria/${"video"}`}>
-                  <NavDropdown.Item href="#action/3.2">
-                    Placas de video
-                  </NavDropdown.Item>
-                </LinkContainer> */}
               </NavDropdown>
             </Nav>
             <Nav>
