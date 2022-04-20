@@ -4,13 +4,13 @@ import { traerCategoria, traerCompatible } from "../../helpers/tags";
 import "./ItemDetail.css";
 
 function ItemDetail({ prod }) {
-  const { addToCart } = useCartContext();
+  const { agregarACarrito } = useCartContext();
 
   const categoriaMostrar = traerCategoria(prod.categoria);
   const compatibleMostrar = traerCompatible(prod.compatible);
 
   const onAdd = (cant) => {
-    addToCart({ ...prod, cantidad: cant });
+    agregarACarrito({ ...prod, cantidad: cant });
   };
 
   return (

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getItems } from "../../helpers/getItems";
 import Spinner from "react-bootstrap/Spinner";
 import ItemDetail from "../../componentes/ItemDetail/ItemDetail";
 import { getFirestore, doc, getDoc } from "firebase/firestore";

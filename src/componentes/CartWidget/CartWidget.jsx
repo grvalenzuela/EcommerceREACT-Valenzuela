@@ -6,7 +6,6 @@ import Badge from "react-bootstrap/Badge";
 function CartWidget() {
   const { cantidadTotalItem } = useCartContext();
 
-  console.log("itemsCarrito: " + cantidadTotalItem());
   return (
     <div>
       <MdShoppingCart size={30} />

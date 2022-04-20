@@ -11,8 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 
-function ItemListContainer({ saludo }) {
-  const [bool, setBool] = useState(true);
+function ItemListContainer() {
   const [loading, setLoading] = useState(true);
   const [prods, setProds] = useState([]);
 

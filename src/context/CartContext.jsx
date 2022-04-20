@@ -10,7 +10,8 @@ function CartContextProvider({ children }) {
   const [ordenFinalizada, setOrdenFinalizada] = useState(false);
   const cantidadProductos = cartList.length;
 
-  const addToCart = (item) => {
+  // Agrega al carrito
+  const agregarACarrito = (item) => {
     let itemEnCart = cartList.find((prod) => prod.id === item.id);
     console.log(itemEnCart);
     itemEnCart
@@ -18,6 +19,7 @@ function CartContextProvider({ children }) {
       : setCartList([...cartList, item]);
   };
 
+  // Incrementar cantidad
   const incrementarCantidad = (item) => {
     const cartCopy = cartList.map((prod) => {
       if (prod.id === item.id) {
@@ -29,6 +31,7 @@ function CartContextProvider({ children }) {
     setCartList(cartCopy);
   };
 
+  // Reducir cantidad
   const decrementarCantidad = (item) => {
     const cartCopy = cartList.map((prod) => {
       if (prod.id === item.id) {
@@ -40,27 +43,33 @@ function CartContextProvider({ children }) {
     setCartList(cartCopy);
   };
 
+  // Eliminar del carrito
   const eliminar = (item) => {
     setCartList(cartList.filter((prod) => prod.id != item.id));
   };
 
+  // varicar carrito
   const vaciarCarrito = () => {
     setCartList([]);
   };
 
+  // Cambiar estado de la orden
   const cambiarEstadoOrden = () => {
     ordenGenerada ? setOrdenGenerada(false) : setOrdenGenerada(true);
   };
 
+  // Finalizar orden
   const finalizarOrden = () => {
     setOrdenFinalizada(true);
   };
 
+  // Reiniciar orden
   const reiniciarOrden = () => {
     setOrdenGenerada(false);
     setOrdenFinalizada(false);
   };
-  //
+
+  // Obtener precio total
   const precioTotal = () => {
     return cartList.reduce(
       (acum, prod) => acum + prod.cantidad * prod.precio,
@@ -68,7 +77,7 @@ function CartContextProvider({ children }) {
     );
   };
 
-  //
+  // Obtener cantidad de items en carrito
   const cantidadTotalItem = () => {
     return cartList.reduce((acum, prod) => (acum += prod.cantidad), 0);
   };
@@ -77,7 +86,7 @@ function CartContextProvider({ children }) {
     <CartContext.Provider
       value={{
         cartList,
-        addToCart,
+        agregarACarrito,
         incrementarCantidad,
         decrementarCantidad,
         eliminar,

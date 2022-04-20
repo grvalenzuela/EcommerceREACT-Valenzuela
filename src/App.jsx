@@ -31,12 +31,9 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<ItemListContainer saludo="Hola"></ItemListContainer>}
+                element={<ItemListContainer></ItemListContainer>}
               />
-              <Route
-                path="/categoria/:id"
-                element={<ItemListContainer saludo="hola" />}
-              />
+              <Route path="/categoria/:id" element={<ItemListContainer />} />
               <Route
                 path="/detalle/:detalleId"
                 element={<ItemDetailContainer />}
@@ -50,11 +47,6 @@ function App() {
         </CartContextProvider>
       </BrowserRouter>
     </Suspense>
-
-    // <div className="App">
-    //   <NavBar />
-    //   <ItemListContainer saludo="Hola"></ItemListContainer>
-    // </div>
   );
 }
 
